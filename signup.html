@@ -3,72 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .masterContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: #0e2946;
+            opacity: 0.9;
+        }
+
+        #signupbox {
+            display: flex;
+            width: 600px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #graphic {
+            width: 40%;
+            background-color: #0e2946;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #graphic img {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        #graphic p {
+            font-size: 14px;
+        }
+
+        #SignupArea {
+            width: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .boxItems {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .boxItems img {
+            width: 100px;
+        }
+
+        .boxItems p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .inputs label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .inputs input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #submitButton {
+            width: 100%;
+            padding: 10px;
+            background-color: #0e2946;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        #submitButton:hover {
+            background-color: #08203a;
+        }
+
+        #log-on p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        #log-on a {
+            color: #0e2946;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #log-on a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .masterContainer {
+                margin-top: 80%;
+                height: auto; /* Allow content to adjust */
+                min-height: 100vh; /* Ensure it fills the screen */
+                padding: 20px 0; /* Add some space at the top and bottom */
+            }
+        
+            #signupbox {
+                flex-direction: column;
+                width: 90%;
+            }
+        
+            #graphic {
+                width: 100%;
+                padding: 10px;
+            }
+        
+            #SignupArea {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+        
+    </style>
 </head>
 <body>
     <main>
         <div class="masterContainer">
-            <div id="loginbox">
+            <div id="signupbox">
                 <div class="boxArea" id="graphic">
-                    <img src="./Graphic designing/flowers.png" alt="" id="graphicImage">
-                    <p>it's good to have you back</p>
+                    <img src="login.jpg" alt="" id="graphicImage">
+                    <p>Join us today!</p>
                 </div>
-                <div class="boxArea" id="LoginArea">
-                    <form id="loginForm">
+                <div class="boxArea" id="SignupArea">
+                    <form id="signupForm" onsubmit="return validateForm()">
                         <div class="boxItems">
                             <img src="./Graphic designing/logo_small.png" alt="">
                         </div>
                         <div class="boxItems">
-                            <p>Welcome User</p>
+                            <p>Create Your Account</p>
                         </div>
                         <div class="boxItems inputs">
-                            <label for="username">username</label>       
+                            <label for="username">Username</label>       
                             <input type="text" id="username" required>
                         </div>
                         <div class="boxItems inputs">
-                            <label for="pword">password</label>  
-                            <input type="password" id="pword" required>
+                            <label for="email">Email</label>       
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="boxItems inputs">
+                            <label for="password">Password</label>  
+                            <input type="password" id="password" required>
+                        </div>
+                        <div class="boxItems inputs">
+                            <label for="confirm-password">Confirm Password</label>  
+                            <input type="password" id="confirm-password" required>
                         </div>
                         <div class="boxItems">                            
-                            <input type="submit" value="SIGN IN" id="submitButton">      
+                            <input type="submit" value="SIGN UP" id="submitButton">      
                         </div>
                         <div class="boxItems" id="log-on">
-                            <p>New to Fortunez? <a href="./signup.html">Create Account</a></p>
+                            <p>Already have an account? <a href="login.html">Login</a></p>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    <!-- JavaScript -->
-    <script>
-        // Attach event listener to the form
-        let form = document.getElementById("loginForm");
+        .masterContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: #0e2946;
+            opacity: 0.9;
+        }
 
-        form.addEventListener("submit", (event) => {
-            event.preventDefault(); // Prevent default form submission
+        #signupbox {
+            display: flex;
+            width: 600px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-            // Get form data
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("pword").value;
+        #graphic {
+            width: 40%;
+            background-color: #0e2946;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
 
-            // Retrieve stored users from localStorage
-            let storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+        #graphic img {
+            width: 80%;
+            margin-bottom: 10px;
+        }
 
-            // Check if the user exists and password matches
-            let userFound = storedUsers.find(
-                (user) => user.username === username && user.password === password
-            );
+        #graphic p {
+            font-size: 14px;
+        }
 
-            if (userFound) {
-                alert(`Login successful! Welcome back, ${userFound.username}`);
-                // Redirect to the index page
-                window.location.href = "index.html";
-            } else {
-                alert("Login failed! Invalid username or password.");
+        #SignupArea {
+            width: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .boxItems {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .boxItems img {
+            width: 100px;
+        }
+
+        .boxItems p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .inputs label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .inputs input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #submitButton {
+            width: 100%;
+            padding: 10px;
+            background-color: #0e2946;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        #submitButton:hover {
+            background-color: #08203a;
+        }
+
+        #log-on p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        #log-on a {
+            color: #0e2946;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #log-on a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .masterContainer {
+                margin-top: 80%;
+                height: auto; /* Allow content to adjust */
+                min-height: 100vh; /* Ensure it fills the screen */
+                padding: 20px 0; /* Add some space at the top and bottom */
             }
-        });
-    </script>
+        
+            #signupbox {
+                flex-direction: column;
+                width: 90%;
+            }
+        
+            #graphic {
+                width: 100%;
+                padding: 10px;
+            }
+        
+            #SignupArea {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="masterContainer">
+            <div id="signupbox">
+                <div class="boxArea" id="graphic">
+                    <img src="login.jpg" alt="" id="graphicImage">
+                    <p>Join us today!</p>
+                </div>
+                <div class="boxArea" id="SignupArea">
+                    <form id="signupForm" onsubmit="return validateForm()">
+                        <div class="boxItems">
+                            <img src="./Graphic designing/logo_small.png" alt="">
+                        </div>
+                        <div class="boxItems">
+                            <p>Create Your Account</p>
+                        </div>
+                        <div class="boxItems inputs">
+                            <label for="username">Username</label>       
+                            <input type="text" id="username" required>
+                        </div>
+                        <div class="boxItems inputs">
+                            <label for="email">Email</label>       
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="boxItems inputs">
+                            <label for="password">Password</label>  
+                            <input type="password" id="password" required>
+                        </div>
+                        <div class="boxItems inputs">
+                            <label for="confirm-password">Confirm Password</label>  
+                            <input type="password" id="confirm-password" required>
+                        </div>
+                        <div class="boxItems">                            
+                            <input type="submit" value="SIGN UP" id="submitButton">      
+                        </div>
+                        <div class="boxItems" id="log-on">
+                            <p>Already have an account? <a href="login.html">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
